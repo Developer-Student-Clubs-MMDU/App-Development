@@ -61,7 +61,7 @@ Update dependencies in pubspec.yaml file
   
 ```yaml 
 dependencies:    
-provider: ^6.0.4
+  provider: ^6.0.4
  ```  
  
 Then in the terminal run  
