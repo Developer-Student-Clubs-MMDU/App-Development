@@ -2,14 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:tab_controller/pages/page1.dart';
 import 'package:tab_controller/pages/page2.dart';
 
-class TabControllerScreen extends StatefulWidget {
-  const TabControllerScreen({Key? key}) : super(key: key);
+class MyApp extends StatefulWidget {
+  const MyApp({Key? key}) : super(key: key);
 
   @override
-  State<TabControllerScreen> createState() => _TabControllerScreenState();
+  State<MyApp> createState() => _MyAppState();
 }
 
-class _TabControllerScreenState extends State<TabControllerScreen>  with TickerProviderStateMixin {
+class _MyAppState extends State<MyApp> with TickerProviderStateMixin {
   late TabController _tabController;
 
   @override
@@ -18,13 +18,16 @@ class _TabControllerScreenState extends State<TabControllerScreen>  with TickerP
       ..addListener(() {});
     super.initState();
   }
+
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Color(0xff00B48B),
-        title: Center(child: Text('Tab Controller'),),
+        title: Center(
+          child: Text('Tab Controller'),
+        ),
       ),
       body: Column(
         children: [
@@ -35,7 +38,7 @@ class _TabControllerScreenState extends State<TabControllerScreen>  with TickerP
             unselectedLabelColor: Colors.black,
             labelStyle: TextStyle(fontSize: 30),
             labelPadding:
-            EdgeInsets.only(left: 35, right: 35, top: 15, bottom: 15),
+                EdgeInsets.only(left: 35, right: 35, top: 15, bottom: 15),
             controller: _tabController,
             indicatorColor: Color(0xff00B48B),
             tabs: [
@@ -47,12 +50,10 @@ class _TabControllerScreenState extends State<TabControllerScreen>  with TickerP
             height: size.height * .52,
             //color: Colors.amber,
             child: TabBarView(
-                controller: _tabController,
-                children: [Page1(), Page2()]),
+                controller: _tabController, children: [Page1(), Page2()]),
           ),
         ],
       ),
-
     );
   }
 }
